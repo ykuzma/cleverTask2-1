@@ -15,7 +15,7 @@ public class StringTest {
 
     @Test
     void isNumberPositiveTest() {
-        assertTrue(stringUtils.isPositiveNumber("2"));
-        assertFalse(stringUtils.isPositiveNumber("-5"));
+        assertTrue(stringUtils.isPositiveNumber("0.002"));
+        assertFalse(stringUtils.isPositiveNumber("-0.005"));
     }
 }

@@ -7,7 +7,8 @@ public class StringUtils {
         try {
             number = Double.parseDouble(str);
         } catch (NumberFormatException e) {
-            return  false;
+            System.out.println("Be attention");
+            return false;
         }
 
         return  number > 0;
