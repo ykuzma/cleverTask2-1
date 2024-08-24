@@ -1,17 +1,16 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'jacoco'
 }
 
 group 'org.example'
 version '1.1.5'
 
-
 repositories {
     mavenLocal()
     mavenCentral()
 }
-
 
 jar{
     archivesBaseName = "utils"
@@ -20,38 +19,33 @@ jar{
         attributes 'bundle-version': version
     }
 }
+
 publishing {
     publications {
-
         mavenJava(MavenPublication) {
             artifactId 'utils'
             from components.java
-
         }
     }
+
     repositories {
-        mavenLocal {
-            metadataSources{
-                mavenPom()
-                artifact()
-            }
-        }
+        mavenLocal ()
         maven {
             name = 'myRepo'
             url = '../CleverTask2-2/libs'
         }
-
     }
 }
 
 dependencies {
-
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
-
+    finalizedBy jacocoTestReport
     useJUnitPlatform()
-
 }
+
+jacocoTestReport.dependsOn(test)
+
