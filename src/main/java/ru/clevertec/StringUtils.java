@@ -2,7 +2,7 @@ package ru.clevertec;
 
 public class StringUtils {
 
-    public boolean isPositiveNumber(String str) throws NumberFormatException{
+    public static boolean isPositiveNumber(String str) throws NumberFormatException{
         return Double.parseDouble(str) > 0;
     }
 }
